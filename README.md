@@ -29,5 +29,6 @@
 # Install Graphwiz with Chocolatey packages
 
 - https://chocolatey.org/install
+- https://community.chocolatey.org/packages/Graphviz
 
 
