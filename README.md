@@ -21,3 +21,13 @@
 - Draw graph if number of vertices less than 100
 - Write in file if number of vestices more than 100
 ```
+
+# Install Graphwiz with dowloads
+
+- https://graphviz.org/download/
+  
+# Install Graphwiz with Chocolatey packages
+
+- https://chocolatey.org/install
+
+
