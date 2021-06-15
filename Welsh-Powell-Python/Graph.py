@@ -4,6 +4,7 @@ from matplotlib import colors
 
 class Graph:
 
+    # Create Graph
     def __init__(self, v: int or str):
         if type(v) == int:
             self.v = v
@@ -14,7 +15,6 @@ class Graph:
                 file = open(v, 'r')
                 fileLines = file.readlines()
                 self.v = int(fileLines[0].rstrip("\n"))
-                # self.e = int(fileLines[1].rstrip("\n"))
                 self.e = 0
                 self.adj = {key: [] for key in range(self.v)}
                 for index in range(2, len(fileLines)):
@@ -28,12 +28,15 @@ class Graph:
         else:
             raise Exception('Enter a file or a number')
 
+    # Get number of vertex
     def intV(self):
         return self.v
 
+    # Get number of edges
     def intE(self):
         return int(self.e / 2)
 
+    # Add edge in Graph
     def addEdge(self, v: int, w: int):
         if v <= len(self.adj):
             if w not in self.adj.get(v):
@@ -48,6 +51,7 @@ class Graph:
         else:
             raise Exception('Enter a vertex in size of graph')
 
+    # Use Welsh Powell algorithm to draw Graph
     def getWelshPowellColoration(self):
         arrayColors = {}
         for elem in colors.TABLEAU_COLORS:
@@ -70,12 +74,9 @@ class Graph:
                         break
 
         arrayColors = {key: item for key, item in arrayColors.items() if len(item) > 0}
-        # result: str = ('Number of Color : {} \n'.format(len(arrayColors)))
-        # for key in arrayColors.keys():
-        #     result += ('{} : {} \n'.format(key, arrayColors.get(key)))
-        # return result
         return arrayColors
 
+    # Use Welsh Powell algorithm to draw Graph
     def drawWelshPowellColoration(self, name: str):
         if type(name) == str:
             arrayColors = self.getWelshPowellColoration()
@@ -105,6 +106,7 @@ class Graph:
         else:
             raise Exception('Enter a valid name file')
 
+    # Display graph
     def __str__(self):
         result: str = ('V : {} \n'.format(self.intV()))
         result += ('E : {} \n'.format(self.intE()))
