@@ -16,4 +16,3 @@ graphTinyG.drawWelshPowellColoration('tinyG')
 graphMediumG = Graph('./FilesTxt/mediumG.txt')
 print(graphMediumG.__str__())
 graphMediumG.drawWelshPowellColoration('mediumG')
-

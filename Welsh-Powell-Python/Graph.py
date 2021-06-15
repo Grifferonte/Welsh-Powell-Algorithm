@@ -54,9 +54,8 @@ class Graph:
     # Use Welsh Powell algorithm to draw Graph
     def getWelshPowellColoration(self):
         arrayColors = {}
-        for elem in colors.TABLEAU_COLORS:
-            splitItem = elem.split(':')
-            arrayColors[splitItem[1]] = []
+        for elem in colors.CSS4_COLORS:
+            arrayColors[elem] = []
         adjSortedBySize: dict = {}
         keyArray = sorted(self.adj.copy(), key=lambda k: len(self.adj.copy()[k]), reverse=True)
         for key in keyArray:
@@ -90,7 +89,7 @@ class Graph:
                 graph = pydot.Dot('my_graph', graph_type='graph')
                 for key in arrayColors.keys():
                     for elem in arrayColors.get(key):
-                        node = pydot.Node(elem, style='filled', fillcolor=key, label=elem, fontcolor='white')
+                        node = pydot.Node(elem, style='filled', fillcolor=key, label=elem, fontcolor='black')
                         graph.add_node(node)
                 for elem in adjTuple:
                     edge = pydot.Edge(elem[0], elem[1])
